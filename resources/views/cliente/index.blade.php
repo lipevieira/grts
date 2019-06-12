@@ -11,8 +11,8 @@
         {{ session('success') }}
     </div>
 @endif
-<table class="table table-sm ">
-  <thead class="thead-light">
+<table class="table table-sm" id="tblCliente">
+  <thead class="thead-dark">
     <tr>
       <th scope="col">COD</th>
       <th scope="col">NOME</th>
@@ -35,7 +35,17 @@
         <button class="btn btn-danger btn-sm " id_cliente="{{$item->id}}" id="btnExcluir" data-url="{{route('cliente.show.delete')}}"> Excluir </button>
       </td>
     </tr>
-  @endforeach  
+  @endforeach 
+  <tfoot class="thead-dark">
+    <tr>
+      <th scope="col">COD</th>
+      <th scope="col">NOME</th>
+      <th scope="col">E-MAIL</th>
+      <th scope="col">SEXO</th>
+      <th scope="col">NASCIMENTO</th>
+      <th scope="col">ACTIONS</th>
+    </tr>
+  </tfoot> 
   </tbody>
 </table>
 <!-- Modal confirma a exclusão de cliente no sistema -->

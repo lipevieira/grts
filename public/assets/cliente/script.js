@@ -1,4 +1,19 @@
 $(document).ready(function () {
+    $('#tblCliente').DataTable({
+        dom: 'Bfrtip',
+        "language": {
+            "lengthMenu": "Mostrando _MENU_ registros por página",
+            "zeroRecords": "Nada Encontrado",
+            "info": "Mostrando páginas _PAGE_ de _PAGES_",
+            "infoEmpty": "Nenhum equipamento encontrado",
+            "infoFiltered": "(Filtrado de _MAX_ registros no total)",
+            "paginate": {
+                "previous": "Anterior",
+                "next": "Próximo"
+            },
+            "search": "Pesquisar"
+        },
+    });
     function limpa_formulário_cep() {
         // Limpa valores do formulário de cep.
         $("#logradoro").val("");

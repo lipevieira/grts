@@ -4,8 +4,18 @@
 @section('content')
 <h3>Editar cliente</h3>
 
-<form method="POST" action="{{route('cliente.update')}}">
+@if ( isset($errors) && count($errors) > 0)
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 
+<form method="POST" action="{{route('cliente.update')}}">
+ {!! csrf_field() !!}
 <input type="hidden" name="id" value="{{$cliente->id}}">
   <div class="form-group">
     <label for="nome">Nome:</label>
@@ -27,8 +37,8 @@
     <label for="sexo">Sexo</label>
     <select class="custom-select" id="sexo" name="sexo">
         <option selected value="{{$cliente->sexo}}">{{$cliente->sexo}}</option>
-        <option value="1">M</option>
-        <option value="2">F</option>
+        <option value="M">M</option>
+        <option value="F">F</option>
     </select>
   </div>
  

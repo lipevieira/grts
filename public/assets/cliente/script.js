@@ -33,5 +33,36 @@ $(document).ready(function () {
             }
         });
     });
+    /****
+     * @description: Carregando o ID do cinete para confirmar a exclusão.
+     * @param id
+     * @returns Cliente
+     */
+    $('table tr td #btnExcluir').on('click', function () {
+
+        var id = $(this).attr("id_cliente");
+        let url = $(this).data('url');
+
+        $.ajaxSetup({
+            headers:
+                { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') }
+        });
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            data: { 'id': id },
+            success: function (data) {
+                // Carregando as Informações do documento dentro modal   
+                console.log(data);
+                $("#id_excluir").val(data.id);
+
+                $('#confirmaExclucao').modal('show');
+            },
+            error: function () {
+                alert("Ocorreu um erro carregar o equipamento.");
+            }
+        });
+    });
     
 });

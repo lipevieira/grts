@@ -27,17 +27,37 @@
     <tr>
       <th scope="row">{{$item->id}}</th>
       <td>{{$item->nome}}</td>
-      <td>{{$item->emai}}l</td>
+      <td>{{$item->email}}l</td>
       <td>{{$item->sexo}}</td>
-      <td>{{ \Carbon\Carbon::parse($item->nascimento)->format('d/m/Y')}}</td>
+      <td>{{$item->nascimento}}</td>
       <td>
         <a href="{{route('cliente.show',$item->id)}}" class="btn btn-info btn-sm"  role="button"> Editar </a>
-        <button class="btn btn-danger btn-sm " id="btnExcluirDocumento"> Excluir </button>
+        <button class="btn btn-danger btn-sm " id_cliente="{{$item->id}}" id="btnExcluir" data-url="{{route('cliente.show.delete')}}"> Excluir </button>
       </td>
     </tr>
   @endforeach  
   </tbody>
 </table>
+<!-- Modal confirma a exclusão de cliente no sistema -->
+<div class="modal" tabindex="-1" role="dialog" id="confirmaExclucao" >
+   <div class="modal-dialog"  role="document">
+      <div class="modal-content ">
+         <div class="modal-body">
+            <center><h4>Deseja realmente excluir este cliente?</h4><center>
+          <form method="POST" action="{{route('cliente.delete')}}">
+               {!! csrf_field() !!}
+               <input type="hidden" name="id_excluir" id="id_excluir" value="">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal">Fechar</button>
+                <button type="submit" class="btn btn-danger btn-sm">
+                    Confirmar Exclusão 
+                </button>
+          </form>
+         </div>
+      </div>
+   </div>
+</div>
 
 
 

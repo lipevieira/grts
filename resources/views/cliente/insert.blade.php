@@ -16,7 +16,7 @@
         <div class="form-row ">
             <div class="form-group col-md-6">
             <label for="nome">Nome:</label>
-            <input type="text" class="form-control is-invalid" id="nome" name="nome" placeholder="nome" value="">
+            <input type="text" class="form-control is-invalid" id="nome" name="nome" placeholder="nome" value="" required>
 
             <label for="email">E-mail:</label>
             <input type="email" class="form-control is-valid" id="email" name="email" placeholder="E-mail" value="" required>
@@ -27,8 +27,8 @@
             <label for="sexo">Sexo</label>
                <select class="custom-select" id="sexo" name="sexo">
                     <option selected></option>
-                    <option value="1">M</option>
-                    <option value="2">F</option>
+                    <option value="M">M</option>
+                    <option value="F">F</option>
                </select>
 
             <label for="nascimento">Nascimento</label>

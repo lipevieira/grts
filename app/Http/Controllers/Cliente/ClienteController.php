@@ -25,12 +25,27 @@ class ClienteController extends Controller
 
         $cliente = new Cliente();
         $endereco = new Endereco();
+        #Validação do formulario
+        $msg = [
+            'nome.required' => 'O campo nome é obrigatorio',
+            'email.unique' => 'Esse E-mail já está cadastrado',
+            'email.required' => 'O campo E-mail é obrigatório',
+            'telefone.required' => 'O campo telefone é obrigatório',
+            'sexo.required' => 'O campo Sexo é obrigatório',
 
-        // $rules     = $cliente->rules();
-        // $rulesEnd  = $endereco->rules();
-        #validamdo formulario
-        // $this->validate($request, $rules);
+        ];
+        $rules = $cliente->rules();
 
+        $this->validate($request, $rules, $msg);
+
+        #Convertendo data
+        if ($dataForm['nascimento'] != null) {
+
+            $nascimento = date('d/m/Y', strtotime($dataForm['nascimento']));
+            $dataForm['nascimento'] = $nascimento;
+        } else {
+            unset($dataForm['nascimento']);
+        }
 
         $cliente = Cliente::create($dataForm);
 
@@ -49,16 +64,50 @@ class ClienteController extends Controller
     }
     public function updateCliente(Request $request)
     {
-        // $dataForm = $request->except('_token');
-        // $cliente = new Cliente();
+        $cliente = new Cliente();
 
-        // $rules = $cliente->rules();
-        // $this->validate($request, $rules);
+        $dataForm = $request->except('_token');
+        $msg = [
+            'nome.required' => 'O campo nome é obrigatorio',
+            'email.unique' => 'Esse E-mail já está cadastrado',
+            'email.required' => 'O campo E-mail é obrigatório',
+            'telefone.required' => 'O campo telefone é obrigatório',
+            'sexo.required' => 'O campo Sexo é obrigatório',
 
-        dd($dataForm);
-        return view('cliente.update');
+        ];
+        $rules = $cliente->rules();
 
+        $this->validate($request, $rules, $msg);
 
+        #Convertendo data
+        if ($dataForm['nascimento'] != null) {
+
+            $nascimento = date('d/m/Y', strtotime($dataForm['nascimento']));
+            $dataForm['nascimento'] = $nascimento;
+        } else {
+            unset($dataForm['nascimento']);
+        }
+
+        $cliente = Cliente::find($request->id);
+        $cliente->update($dataForm);
+
+        return redirect()->route('cliente.index')
+            ->with('success', 'Cliente alterado com sucesso!');
+    }
+    public function showClienteDelete(Request $request)
+    {
+        $id = $request->id;
+        $cliente = Cliente::find($id);
+
+        return response()->json($cliente);
+    }
+    public function delete(Request $request)
+    {
+        $cliente = Cliente::find($request->id_excluir);
+        $cliente->enderecos()->delete();
+        $cliente->delete();
+
+        return redirect()->route('cliente.index')
+            ->with('success', 'Cliente Deletado com sucesso!');
     }
 }
-

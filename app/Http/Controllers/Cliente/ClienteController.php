@@ -34,9 +34,21 @@ class ClienteController extends Controller
             'sexo.required' => 'O campo Sexo é obrigatório',
 
         ];
+        $msgEndereco = [
+            'logradouro.required' => 'O campo Logradouro é obrigatorio',
+            'numero.required' => 'O campo Numero é obrigatório',
+            'bairro.required' => 'O campo Bairro é obrigatório',
+            'cidade.required' => 'O campo Cidade é obrigatório',
+            'estado.required' => 'O campo Estado é obrigatório',
+            'pais.required' => 'O campo Pais é obrigatório',
+            'cep.required' => 'O campo CEP é obrigatório',
+        ];
+
         $rules = $cliente->rules();
+        $rulesEndereco = $endereco->rules();
 
         $this->validate($request, $rules, $msg);
+        $this->validate($request, $rulesEndereco, $msgEndereco);
 
         #Convertendo data
         if ($dataForm['nascimento'] != null) {

@@ -14,15 +14,7 @@ $(document).ready(function () {
             "search": "Pesquisar"
         },
     });
-    function limpa_formulário_cep() {
-        // Limpa valores do formulário de cep.
-        $("#logradoro").val("");
-        $("#bairro").val("");
-        $("#cidade").val("");
-        $("#estado").val("");
-        $("#pais").val("");
-    }
-
+ 
     $('#cep').focusout(function(){
         var cep = $('#cep').val();
         cep = cep.replace("-","");
@@ -44,7 +36,7 @@ $(document).ready(function () {
                
             },
             error: function () {
-                alert("Ocorreu um erro carregar o equipamento.");
+                alert("Ocorreu um erro buscar o endereço do cliente.");
             }
         });
     });
@@ -68,7 +60,7 @@ $(document).ready(function () {
             url: url,
             data: { 'id': id },
             success: function (data) {
-                // Carregando as Informações do documento dentro modal   
+                // Carregando as Informações do cliente dentro modal   
                 console.log(data);
                 $("#id_excluir").val(data.id);
 

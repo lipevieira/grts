@@ -12,7 +12,7 @@
     </div>
 @endif
 <table class="table table-sm" id="tblCliente">
-  <thead class="thead-dark">
+  <thead>
     <tr>
       <th scope="col">COD</th>
       <th scope="col">NOME</th>
@@ -36,7 +36,7 @@
       </td>
     </tr>
   @endforeach 
-  <tfoot class="thead-dark">
+  <tfoot>
     <tr>
       <th scope="col">COD</th>
       <th scope="col">NOME</th>

@@ -22,6 +22,3 @@ Route::group(['prefix' => 'cliente'], function(){
     Route::post('/insert/save', 'Cliente\ClienteController@save')->name('cliente.save');
 });
 
-Route::group(['prefix' => 'endereco'], function(){
-    Route::get('/index', 'Endereco\EnderecoController@index')->name('endereco.index');
-});

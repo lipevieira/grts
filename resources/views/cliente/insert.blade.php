@@ -42,7 +42,7 @@
          
 
             <label for="logradoro">Logradoro</label>
-            <input type="text" class="form-control is-valid" id="logradouro" name="logradouro" placeholder="Logradoro" value=""required readonly>
+            <input type="text" class="form-control " id="logradouro" name="logradouro" placeholder="Logradoro" value=""required readonly>
 
             <label for="complemento">Complemento</label>
             <input type="text" class="form-control is-valid" id="complemento" name="complemento" placeholder="Complemento" value="">
@@ -51,13 +51,13 @@
             <input type="number" class="form-control is-valid" id="numero" name="numero" placeholder="Numero" value="" required>
 
             <label for="bairro">Bairro</label>
-            <input type="text" class="form-control is-invalid" id="bairro" name="bairro" placeholder="Bairro" aria-describedby="inputGroupPrepend3" value="" required readonly>
+            <input type="text" class="form-control " id="bairro" name="bairro" placeholder="Bairro" aria-describedby="inputGroupPrepend3" value="" required readonly>
 
             <label for="cidade">Cidade</label>
-            <input type="text" class="form-control is-invalid" id="cidade" name="cidade" placeholder="Cidade" value="" required readonly>
+            <input type="text" class="form-control " id="cidade" name="cidade" placeholder="Cidade" value="" required readonly>
 
             <label for="estado">Estado</label>
-            <input type="text" class="form-control is-invalid" id="estado" name="estado" placeholder="Estado" value="" required readonly>
+            <input type="text" class="form-control " id="estado" name="estado" placeholder="Estado" value="" required readonly>
         </div>
             <div class="form-group col-md-12">
             <label for="pais" class="col-form-label">Pais:</label>

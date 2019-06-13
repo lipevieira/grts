@@ -23,7 +23,7 @@ class Endereco extends Model
             'cidade' => 'required|max:45',
             'estado' => 'required|max:45',
             'pais' => 'required|max:45',
-            'cep' => 'required|max:7',
+            'cep' => 'required|max:45',
         ];
     }
 }

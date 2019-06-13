@@ -17,9 +17,6 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="{{route('cliente.index')}}">Cliente <span class="sr-only">(Página atual)</span></a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('endereco.index')}}">Endereços</a>
-                </li>
             </ul>
         </div>
     </nav>
